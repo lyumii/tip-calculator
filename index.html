@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>
+            <p>Tip Calculator</p>
+        </h1>
+    </header>
+    <main>
+        <div id="bill">
+            <label for="billinput">Your Bill:</label><input type="number" name="bill" id="bill-input" placeholder="Bill amount:">
+        </div>
+        <div id="tip-type">
+            <p>Chose your tip:</p>
+            <div id="flat-tip-type">
+                <input type="radio" name="tiptype" id="flat-tip-radio">
+                <label for="flat-tip">Flat tip amount:</label>
+                <input type="number" name="flattipamount" id="flat-tip-amount" placeholder="Tip amount:">
+            </div>
+            <div id="percentage-tip-type">
+                <div>
+                    <input type="radio" name="tiptype" id="percentage-tip-radio" checked >
+                    <label for="customtip">Tip %:</label>
+                    <input type="number" name="customtipamount" id="custom-tip" placeholder="Custom %:">
+                </div>
+                        </div>
+                        <div id="tipbuttons">
+                <button id="ten-button">10%</button>
+                <button id="fifteen-button">15%</button>
+                <button id="twenty-button">20%</button>
+                        </div>
+            </div>
+        <div id="total-bill">
+            <p id="total-output">Your total:</p>
+            <button id="calculate-button">Calculate Tip</button>        
+            <button id="clear-button">Clear</button>
+        </div>
+    </main>
+    <footer>
+        <p>Thank you for tipping! Your generosity is appreciated.</p>
+    </footer>
+</body>
