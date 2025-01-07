@@ -84,7 +84,7 @@ calcBtn.addEventListener("click", function() {
     
     let billAmount = parseFloat(billInput.value) || 0;
     let flatTipAmount = parseFloat(flatTipInput.value) || 0;
-    let customTipPercent = parseInt(customTipInput.value) || 0;
+    let customTipPercent = parseFloat(customTipInput.value) || 0;
 
     if (flatTipTrue) {
         totalSum = billAmount + flatTipAmount;
