@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    border: dotted 2px black;
+    font-size: 1.1rem;
+}
+
+.borderme {
+    border: solid 1px black;
+    border-radius: 2px;
+    background-color: rgb(207, 218, 196);
+}
+
+fieldset {
+    border: none;
+}
+
+h1 {
+    border-bottom: dotted 2px black;
+    padding: 5px 0;
+    font-family: Orbitron, sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px darkgray;
+}
+
+#bill, #tip-type, #total-bill {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+#bill-div, #flat-tip-type, #percentage-tip-type {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+button {
+    background-color: rgb(233, 241, 224);
+    padding: 5px;
+    margin: 5px 0px;
+    border: none;
+    box-shadow: 1px 1px darkgray;
+}
+
+.paragraph {
+    text-decoration: underline;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+#resultCss {
+    text-decoration: none;
+    text-shadow: 1px 1px darkgray;
+    display: inline-block;
+    font-family: Orbitron, sans-serif;
+    font-size: larger;
+    font-weight: 500;
+    border: dotted 2px black;
+    padding: 3px;
+    margin-left: 5px;
+
+}
+
+#tipbuttons {
+    padding-top: 5px;
+}
+
+footer {
+    border-top: dotted 2px black;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#total-bill {
+    padding-bottom: 10px;
+}
+
+#totalDiv {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+

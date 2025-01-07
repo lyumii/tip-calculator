@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tip Calculator</title>
@@ -8,46 +11,62 @@
     <script src="js.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>
-            <p>Tip Calculator</p>
-        </h1>
-    </header>
-    <main>
-        <form action="">
-            <fieldset>
-                <div id="bill">
-                    <label for="billinput">Your Bill:</label><input type="text" name="bill" id="bill-input" pattern="[0-9]" placeholder="Bill amount:">
-                </div>
-                <div id="tip-type">
-                    <p>Chose your tip:</p>
-                    <div id="flat-tip-type">
-                        <input type="radio" name="tiptype" id="flat-tip-radio">
-                        <label for="flat-tip">Flat tip amount:</label>
-                        <input type="text" name="flattipamount" id="flat-tip-amount" pattern="[0-9]" placeholder="Tip amount:">
-                    </div>
-                    <div id="percentage-tip-type">
-                        <div>
-                            <input type="radio" name="tiptype" id="percentage-tip-radio" checked >
-                            <label for="customtip">Tip %:</label>
-                            <input type="text" name="customtipamount" id="custom-tip" pattern="[0-9]{2}" min="5"placeholder="Custom %:">
+    <div class="borderme">
+        <header>
+            <h1>
+                <p>Tip Calculator</p>
+            </h1>
+        </header>
+
+        <main>
+            <form action="">
+                <fieldset>
+
+                    <div id="bill">
+                        <div class="columnone" id="bill-div"><label for="billinput" >Your Bill:</label>
+                        <div class="columntwo" ><input type="text" name="bill" id="bill-input" pattern="[0-9]+(\.[0-9]{1,2})?" placeholder="Bill amount:"></div>
                         </div>
-                                </div>
-                                <div id="tipbuttons">
-                        <button id="ten-button">10%</button>
-                        <button id="fifteen-button">15%</button>
-                        <button id="twenty-button">20%</button>
-                                </div>
                     </div>
-            </fieldset>
-            <div id="total-bill">
-                <p id="total-output">Your total:</p>
-                <button id="calculate-button">Calculate Tip</button>
-                <button id="clear-button">Clear</button>
-            </div>
-        </form>
-    </main>
-    <footer>
-        <p>Thank you for tipping! Your generosity is appreciated.</p>
-    </footer>
+
+                    <div id="tip-type">
+                        <p class="paragraph">Chose your tip:</p>
+
+                        <div id="flat-tip-type" class="columnone">
+                            <div>
+                                <input type="radio" name="tiptype" id="flat-tip-radio">
+                                <label for="flat-tip" >Flat tip:</label>
+                            </div>
+                            <div class="columntwo"><input type="text" name="flattipamount" id="flat-tip-amount" pattern="[0-9]+(\.[0-9]{1,2})?" placeholder="Tip amount:"></div>
+                        </div>
+                        
+                        <div id="percentage-tip-type" class="columnone">
+                            <div>
+                                <input type="radio" name="tiptype" id="percentage-tip-radio" checked >
+                                <label for="customtip" >Tip %:</label>
+                            </div>
+                            <div class="columntwo"><input type="text" name="customtipamount" id="custom-tip"  pattern="[0-9]+(\.[0-9]{1,2})?" min="5"placeholder="Custom %:"></div>
+                        </div>
+                        
+                            
+                        <div id="tipbuttons">
+                            <button id="ten-button" type="button">10%</button>
+                            <button id="fifteen-button" type="button">15%</button>
+                            <button id="twenty-button" type="button">20%</button>
+                        </div>
+                    </div>                   
+                </fieldset>
+
+                <div id="total-bill">
+                    <div id="totalDiv">
+                        <p id="total-output"><p class="paragraph"> Your total:</p></p>
+                    </div>
+                    <button id="calculate-button" type="button">Calculate Tip</button>
+                    <button id="clear-button" type="button">Clear</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p>Thank you for tipping! Your generosity is appreciated.</p>
+        </footer>
+    </div>
 </body>

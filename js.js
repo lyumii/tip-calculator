@@ -88,17 +88,24 @@ calcBtn.addEventListener("click", function() {
 
     if (flatTipTrue) {
         totalSum = billAmount + flatTipAmount;
-        totalBillOutput = `<p>Your total: ${totalSum}</p>`;
+        totalBillOutput = `<span id="resultCss">${totalSum}</span>`;
 
     } else if (percentageTipTrue) {
         totalSum = billAmount + ((billAmount*customTipPercent)/100)
-        totalBillOutput = `<p>Your total: ${totalSum}</p>`;
+        totalBillOutput = `<div><span id="resultCss">${totalSum}</span></div>`;
     }
+    
+    totalOutput.innerHTML = totalOutput.innerHTML + totalBillOutput
+    // let spanCss = document.getElementById("resultCss");
+    // spanCss.style.fontSize = "20px"
+    // spanCss.style.fontWeight = "600"
+    // spanCss.style.fontFamily = "Orbitron, sans serif"
+    // spanCss.style.border = "dotted 2px yellow"
+    // spanCss.style.textDecoration = "none"
 
-    totalOutput.innerHTML = totalBillOutput
 })
 
-clearBtn.addEventListener("click", function() {
+clearBtn.addEventListener("dblclick", function() {
     billInput.value = "";
     flatTipInput.value = "";
     customTipInput.value = "";
