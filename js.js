@@ -13,6 +13,18 @@ const percentageTipType = document.getElementById("percentage-tip-radio");
 
 let flatTipTrue = false;
 let percentageTipTrue = false;
+//add symbol restrictions to input fields
+//add round up/down buttons 
+
+function onlyNumbers(inputfield) {
+    inputfield.onkeydown = function(event) {
+        if (isNaN(event.key) && event.key !== "Backspace" && event.key !== ".") {
+            event.preventDefault();
+        }
+    }
+}
+
+onlyNumbers(billInput);
 
 window.addEventListener("load", function() {
     percentageTipTrue = true; 
@@ -23,6 +35,7 @@ flatTipType.addEventListener("click", function() {
     percentageTipTrue = false;
 })
 flatTipInput.addEventListener("click", function(){
+    onlyNumbers(flatTipInput);
     customTipInput.value = "";
     flatTipType.checked = true;
     flatTipTrue = true;
@@ -34,6 +47,7 @@ percentageTipType.addEventListener("click", function() {
     flatTipTrue = false;
 }) 
 customTipInput.addEventListener("click", function() {
+    onlyNumbers(customTipInput)
     flatTipInput.value = "";
     percentageTipType.checked = true;
     percentageTipTrue = true;

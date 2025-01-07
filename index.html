@@ -14,34 +14,38 @@
         </h1>
     </header>
     <main>
-        <div id="bill">
-            <label for="billinput">Your Bill:</label><input type="number" name="bill" id="bill-input" placeholder="Bill amount:">
-        </div>
-        <div id="tip-type">
-            <p>Chose your tip:</p>
-            <div id="flat-tip-type">
-                <input type="radio" name="tiptype" id="flat-tip-radio">
-                <label for="flat-tip">Flat tip amount:</label>
-                <input type="number" name="flattipamount" id="flat-tip-amount" placeholder="Tip amount:">
-            </div>
-            <div id="percentage-tip-type">
-                <div>
-                    <input type="radio" name="tiptype" id="percentage-tip-radio" checked >
-                    <label for="customtip">Tip %:</label>
-                    <input type="number" name="customtipamount" id="custom-tip" placeholder="Custom %:">
+        <form action="">
+            <fieldset>
+                <div id="bill">
+                    <label for="billinput">Your Bill:</label><input type="text" name="bill" id="bill-input" pattern="[0-9]" placeholder="Bill amount:">
                 </div>
+                <div id="tip-type">
+                    <p>Chose your tip:</p>
+                    <div id="flat-tip-type">
+                        <input type="radio" name="tiptype" id="flat-tip-radio">
+                        <label for="flat-tip">Flat tip amount:</label>
+                        <input type="text" name="flattipamount" id="flat-tip-amount" pattern="[0-9]" placeholder="Tip amount:">
+                    </div>
+                    <div id="percentage-tip-type">
+                        <div>
+                            <input type="radio" name="tiptype" id="percentage-tip-radio" checked >
+                            <label for="customtip">Tip %:</label>
+                            <input type="text" name="customtipamount" id="custom-tip" pattern="[0-9]{2}" min="5"placeholder="Custom %:">
                         </div>
-                        <div id="tipbuttons">
-                <button id="ten-button">10%</button>
-                <button id="fifteen-button">15%</button>
-                <button id="twenty-button">20%</button>
-                        </div>
+                                </div>
+                                <div id="tipbuttons">
+                        <button id="ten-button">10%</button>
+                        <button id="fifteen-button">15%</button>
+                        <button id="twenty-button">20%</button>
+                                </div>
+                    </div>
+            </fieldset>
+            <div id="total-bill">
+                <p id="total-output">Your total:</p>
+                <button id="calculate-button">Calculate Tip</button>
+                <button id="clear-button">Clear</button>
             </div>
-        <div id="total-bill">
-            <p id="total-output">Your total:</p>
-            <button id="calculate-button">Calculate Tip</button>        
-            <button id="clear-button">Clear</button>
-        </div>
+        </form>
     </main>
     <footer>
         <p>Thank you for tipping! Your generosity is appreciated.</p>
