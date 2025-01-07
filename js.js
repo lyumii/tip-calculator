@@ -95,7 +95,7 @@ calcBtn.addEventListener("click", function() {
         totalBillOutput = `<div><span id="resultCss">${totalSum}</span></div>`;
     }
     
-    totalOutput.innerHTML = totalOutput.innerHTML + totalBillOutput
+    totalOutput.innerHTML = totalBillOutput
     // let spanCss = document.getElementById("resultCss");
     // spanCss.style.fontSize = "20px"
     // spanCss.style.fontWeight = "600"
@@ -109,7 +109,7 @@ clearBtn.addEventListener("dblclick", function() {
     billInput.value = "";
     flatTipInput.value = "";
     customTipInput.value = "";
-    totalOutput.innerHTML = "Your total:"
+    totalOutput.innerHTML = ""
 
 })
 
