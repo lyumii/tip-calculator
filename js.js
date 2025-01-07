@@ -9,6 +9,7 @@ const calcBtn = document.getElementById("calculate-button");
 const clearBtn = document.getElementById("clear-button");
 const flatTipType = document.getElementById("flat-tip-radio");
 const percentageTipType = document.getElementById("percentage-tip-radio");
+const footer = document.getElementById("footer");
 
 
 let flatTipTrue = false;
@@ -96,6 +97,7 @@ calcBtn.addEventListener("click", function() {
     }
     
     totalOutput.innerHTML = totalBillOutput
+    thankYou();
     // let spanCss = document.getElementById("resultCss");
     // spanCss.style.fontSize = "20px"
     // spanCss.style.fontWeight = "600"
@@ -109,11 +111,14 @@ clearBtn.addEventListener("dblclick", function() {
     billInput.value = "";
     flatTipInput.value = "";
     customTipInput.value = "";
-    totalOutput.innerHTML = ""
+    totalOutput.innerHTML = "";
+    footer.innerHTML = "Have a nice day!";
 
 })
 
-
+function thankYou() {
+    footer.innerHTML = "Thank you for tipping! Your generosity is appreciated."
+}
 
 
 // things I struggled with or took time to figure out:
