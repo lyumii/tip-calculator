@@ -104,18 +104,18 @@ calcBtn.addEventListener("click", function() {
         
             if (parseFloat(totalSum) % 1 !== 0) {
                totalSum = billAmount + ((billAmount*customTipPercent)/100) 
-               totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
+               totalBillOutput = `<div id="resultDivCss"><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
                totalOutput.innerHTML = totalBillOutput
 
                roundButton = document.getElementById("roundup");
 
                roundButton.addEventListener("click", function() {
                totalSum = (Math.ceil(totalSum/0.5))*0.5;
-               totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
+               totalBillOutput = `<div id="resultDivCss"><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
                totalOutput.innerHTML = totalBillOutput;
 
                     if (parseFloat(totalSum) % 1 !== 0) {
-                        totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up again!</button></div>`
+                        totalBillOutput = `<div id="resultDivCss"><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up again!</button></div>`
                         totalOutput.innerHTML = totalBillOutput
                         
                         roundButton = document.getElementById("roundup");

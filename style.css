@@ -64,7 +64,7 @@ button {
     font-weight: 500;
     border: dotted 2px black;
     padding: 3px;
-    margin-left: 5px;
+    margin-left: 10px;
 
 }
 
@@ -94,3 +94,29 @@ footer {
     padding-left: 5px;
     padding-bottom: 10px;
 }
+
+#to-split {
+    margin-left: 5px;
+    transform: scale(1.05);
+}
+
+#roundup {
+    border: dotted 2px black;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 8px;
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    text-align: center;
+    font-family: Orbitron, sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#resultDivCss {
+  display: flex; 
+  align-items: center; 
+  gap: 5px;
