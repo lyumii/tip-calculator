@@ -10,11 +10,16 @@ const clearBtn = document.getElementById("clear-button");
 const flatTipType = document.getElementById("flat-tip-radio");
 const percentageTipType = document.getElementById("percentage-tip-radio");
 const footer = document.getElementById("footer");
+const wantToSplit = document.getElementById("to-split");
+const tipDivider = document.getElementById("tip-divider");
+const splitCalculation = document.getElementById("split-calculation");    
 
-
+let party;
+let partySize = 2;
+let splitResult;
 let flatTipTrue = false;
-let percentageTipTrue = false;
-//add symbol restrictions to input fields
+let percentageTipTrue = false;       
+
 //add round up/down buttons 
 
 function onlyNumbers(inputfield) {
@@ -98,13 +103,6 @@ calcBtn.addEventListener("click", function() {
     
     totalOutput.innerHTML = totalBillOutput
     thankYou();
-    // let spanCss = document.getElementById("resultCss");
-    // spanCss.style.fontSize = "20px"
-    // spanCss.style.fontWeight = "600"
-    // spanCss.style.fontFamily = "Orbitron, sans serif"
-    // spanCss.style.border = "dotted 2px yellow"
-    // spanCss.style.textDecoration = "none"
-
 })
 
 clearBtn.addEventListener("dblclick", function() {
@@ -112,14 +110,53 @@ clearBtn.addEventListener("dblclick", function() {
     flatTipInput.value = "";
     customTipInput.value = "";
     totalOutput.innerHTML = "";
-    footer.innerHTML = "Have a nice day!";
+    footer.innerHTML = "Have a nice day!"
+    wantToSplit.checked = false
+    tipDivider.innerHTML = "";
+    splitCalculation.innerHTML = "";
 
 })
+
+wantToSplit.addEventListener("change", function() {
+    if (wantToSplit.checked) {
+        tipDivider.innerHTML = `Size of party: <input id="party-size-value" type="number" value="2">`;
+    } else {
+        tipDivider.innerHTML = "";
+        splitCalculation.innerHTML = "";
+    } 
+    party = document.getElementById("party-size-value");
+    partySize = party.value;
+
+    divideTheTip();
+
+    party.addEventListener("input", function() {
+    partySize = party.value;
+    divideTheTip();
+    })
+})
+
+
 
 function thankYou() {
     footer.innerHTML = "Thank you for tipping! Your generosity is appreciated."
 }
 
+function divideTheTip() {
+    let billAmount = parseFloat(billInput.value) || 0;
+    let flatTipAmount = parseFloat(flatTipInput.value) || 0;
+    let customTipPercent = parseFloat(customTipInput.value) || 0;
+        if (partySize <= 0 || isNaN(partySize)) {
+        splitCalculation.innerHTML = `Amount per person:`;
+        return;
+        }
+
+        if (flatTipTrue) {
+            splitResult = flatTipAmount / partySize
+        } else if (percentageTipTrue) {
+            splitResult =  ((billAmount*customTipPercent)/100) / partySize;
+        }
+        splitCalculation.innerHTML = `Amount per person: ${splitResult.toFixed(2)}`;      
+}
 
 // things I struggled with or took time to figure out:
 // - logging out consistently to check if things work

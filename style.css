@@ -90,3 +90,7 @@ footer {
     justify-content: flex-end;
 }
 
+#split-tip {
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
