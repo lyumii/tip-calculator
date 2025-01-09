@@ -89,6 +89,7 @@ twentyBtn.addEventListener("click", function() {
 calcBtn.addEventListener("click", function() {
     let totalBillOutput;
     let totalSum;
+    let roundButton;
     
     let billAmount = parseFloat(billInput.value) || 0;
     let flatTipAmount = parseFloat(flatTipInput.value) || 0;
@@ -97,13 +98,42 @@ calcBtn.addEventListener("click", function() {
     if (flatTipTrue) {
         totalSum = billAmount + flatTipAmount;
         totalBillOutput = `<span id="resultCss">${totalSum.toFixed(2)}</span>`;
+        totalOutput.innerHTML = totalBillOutput
 
     } else if (percentageTipTrue) {
-        totalSum = billAmount + ((billAmount*customTipPercent)/100)
-        totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span></div>`;
+        
+            if (parseFloat(totalSum) % 1 !== 0) {
+               totalSum = billAmount + ((billAmount*customTipPercent)/100) 
+               totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
+               totalOutput.innerHTML = totalBillOutput
+
+               roundButton = document.getElementById("roundup");
+
+               roundButton.addEventListener("click", function() {
+               totalSum = (Math.ceil(totalSum/0.5))*0.5;
+               totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up!</button></div>`
+               totalOutput.innerHTML = totalBillOutput;
+
+                    if (parseFloat(totalSum) % 1 !== 0) {
+                        totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span><button id="roundup" type="button">Round me up again!</button></div>`
+                        totalOutput.innerHTML = totalBillOutput
+                        
+                        roundButton = document.getElementById("roundup");
+                        roundButton.addEventListener("click", function() {
+                            totalSum = Math.ceil(totalSum);
+                            totalBillOutput = `<div><span id="resultCss">${parseInt(totalSum)}</span></div>`
+                            totalOutput.innerHTML = totalBillOutput;
+                        })
+                    }
+               })
+
+            } else {
+                totalSum = billAmount + ((billAmount*customTipPercent)/100)
+                totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span></div>`;
+                totalOutput.innerHTML = totalBillOutput
+            }
     }
     
-    totalOutput.innerHTML = totalBillOutput
     thankYou();
 })
 
