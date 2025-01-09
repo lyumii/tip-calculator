@@ -31,6 +31,8 @@ function onlyNumbers(inputfield) {
 }
 
 onlyNumbers(billInput);
+onlyNumbers(flatTipInput);
+onlyNumbers(customTipInput);
 
 window.addEventListener("load", function() {
     percentageTipTrue = true; 
@@ -94,11 +96,11 @@ calcBtn.addEventListener("click", function() {
 
     if (flatTipTrue) {
         totalSum = billAmount + flatTipAmount;
-        totalBillOutput = `<span id="resultCss">${totalSum}</span>`;
+        totalBillOutput = `<span id="resultCss">${totalSum.toFixed(2)}</span>`;
 
     } else if (percentageTipTrue) {
         totalSum = billAmount + ((billAmount*customTipPercent)/100)
-        totalBillOutput = `<div><span id="resultCss">${totalSum}</span></div>`;
+        totalBillOutput = `<div><span id="resultCss">${totalSum.toFixed(2)}</span></div>`;
     }
     
     totalOutput.innerHTML = totalBillOutput
@@ -128,7 +130,8 @@ wantToSplit.addEventListener("change", function() {
     partySize = party.value;
 
     divideTheTip();
-
+    onlyNumbers(party);
+    
     party.addEventListener("input", function() {
     partySize = party.value;
     divideTheTip();
