@@ -149,6 +149,16 @@ clearBtn.addEventListener("dblclick", function() {
 
 })
 
+billInput.addEventListener("input", function() {
+    flatTipInput.value = "";
+    customTipInput.value = "";
+    totalOutput.innerHTML = "";
+    footer.innerHTML = "Have a nice day!"
+    wantToSplit.checked = false
+    tipDivider.innerHTML = "";
+    splitCalculation.innerHTML = "";
+})
+
 wantToSplit.addEventListener("change", function() {
     if (wantToSplit.checked) {
         tipDivider.innerHTML = `Size of party: <input id="party-size-value" type="number" value="2">`;
